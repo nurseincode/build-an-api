@@ -1,4 +1,4 @@
-from init import db
+from init import db, ma
 
 class Student(db.Model):
     __tablename__= 'students'
@@ -6,5 +6,7 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(200), nullable=False)
+    email = db.Column(db.String(200), nullable=False, unique=True)
     address = db.Column(db.String(250))
+
+class StudentSchema(ma.Schema):
