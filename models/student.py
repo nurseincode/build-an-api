@@ -10,3 +10,9 @@ class Student(db.Model):
     address = db.Column(db.String(250))
 
 class StudentSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'name', 'email', 'address')
+        
+
+one_student = StudentSchema()
+many_students = StudentSchema(many=True)
