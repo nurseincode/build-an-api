@@ -1,6 +1,7 @@
 from flask import Flask
 from init import db, ma 
 import os
+from blueprints.cli_bp
 
 def create_app():
     app = Flask(__name__)
