@@ -11,3 +11,18 @@ def create_tables():
 
 @cli_bp.cli.comman('seed')
 def seed_tables():
+    students = [
+        Student(
+            name = 'Mary Jones',
+            email = 'mary.jones@gmail.com',
+            address = 'Sydney'
+        ),
+        Student(
+            name = 'John Smith',
+            email = 'john.smith@outlook.com',
+        )
+    ]
+
+    db.session.add_all(students)
+    db.session.commit()
+    print('Tables seeded')
