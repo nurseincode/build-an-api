@@ -1,5 +1,6 @@
 from flask import Blueprint
 from init import db
+from models.student import Student
 
 cli_bp = Blueprint('cli_commands', __name__)
 
@@ -9,7 +10,7 @@ def create_tables():
     db.create_all()
     print('Tables created')
 
-@cli_bp.cli.comman('seed')
+@cli_bp.cli.command('seed')
 def seed_tables():
     students = [
         Student(
@@ -26,3 +27,4 @@ def seed_tables():
     db.session.add_all(students)
     db.session.commit()
     print('Tables seeded')
+
