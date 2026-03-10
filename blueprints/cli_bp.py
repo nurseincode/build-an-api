@@ -2,7 +2,7 @@ from flask import Blueprint
 from init import db
 from models.student import Student
 
-cli_bp = Blueprint('cli_commands', __name__)
+cli_bp = Blueprint('db', __name__)
 
 @cli_bp.cli.command('init')
 def create_tables():
