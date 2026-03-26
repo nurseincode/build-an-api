@@ -13,6 +13,10 @@ def get_all_students():
 
 
 # Read one - GET /students/<int:id>
+@students_bp.route('/students/<int:student_id>')
+def get_one_student(student_id):
+    stmt = db.select(Student).filter_by(id=student_id)
+    student = db.session.scalar(stmt)
 
 # Create - POST /students
 
