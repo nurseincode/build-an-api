@@ -23,6 +23,11 @@ def get_one_student(student_id):
         return {'error': f'Student with id {student_id} does not exist'}, 404
 
 # Create - POST /students
+@students_bp.route('/students', methods=['POST'])
+def create_student():
+    # Get incoming request body (JSON)
+    # Create a new instance of Student model
+    # Add the instance to the db session
 
 # Update - PUT /students/<int:id>
 
