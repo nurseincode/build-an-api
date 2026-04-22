@@ -6,6 +6,7 @@ from models.student import Student, many_students, one_student, student_without_
 
 students_bp = Blueprint('students', __name__)
 
+
 # Read all - GET /students
 @students_bp.route('/students')
 def get_all_students():
