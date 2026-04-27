@@ -2,6 +2,7 @@ from flask import Blueprint
 from init import db
 from models.student import Student
 from models.teacher import Teacher
+from models.course import Course
 
 db_bp = Blueprint('db', __name__)
 
@@ -38,9 +39,15 @@ def seed_tables():
         )
     ]
     
+    courses = [
+        Course(
+            name='Diploma of Web Development',
+        )
+    ]
 
     db.session.add_all(students)
     db.session.add_all(teachers)
+    db.session.add_all(courses)
     db.session.commit()
     print('Tables seeded')
 
