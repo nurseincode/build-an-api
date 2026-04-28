@@ -1,5 +1,6 @@
 from flask import Blueprint
 from init import db
+from datetime import date
 from models.student import Student
 from models.teacher import Teacher
 from models.course import Course
@@ -39,14 +40,23 @@ def seed_tables():
         )
     ]
     
+    db.session.add_all(teachers)
+    db.session.commit()
+
     courses = [
         Course(
             name='Diploma of Web Development',
+            start_date=date(2026, 10, 1),
+            end_date=date(2027, 10, 1)
+        ),
+        Course(
+            name='Diploma of Bible Study',
+            start_date=date(2026, 12, 1),
+            end_date=date(2028, 10, 1)
         )
     ]
 
     db.session.add_all(students)
-    db.session.add_all(teachers)
     db.session.add_all(courses)
     db.session.commit()
     print('Tables seeded')
