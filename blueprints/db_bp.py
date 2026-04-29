@@ -47,12 +47,14 @@ def seed_tables():
         Course(
             name='Diploma of Web Development',
             start_date=date(2026, 10, 1),
-            end_date=date(2027, 10, 1)
+            end_date=date(2027, 10, 1),
+            teacher_id=teachers[0].id
         ),
         Course(
             name='Diploma of Bible Study',
             start_date=date(2026, 12, 1),
-            end_date=date(2028, 10, 1)
+            end_date=date(2028, 10, 1),
+            teacher_id=teachers[1].id
         )
     ]
 
