@@ -10,10 +10,12 @@ class Course(db.Model):
     end_date = db.Column(db.Date)
 
     teacher_id = db.Column(db.Integer, db.ForeignKey('teachers.id'))
+    teacher = db.relationship('Teacher')
 
 class CourseSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'name', 'start_date', 'end_date', 'teacher_id')
+        fields = ('id', 'name', 'start_date', 'end_date', 'teacher_id', 'teacher')
+
         
 
 one_course = CourseSchema()
