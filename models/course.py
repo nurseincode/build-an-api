@@ -1,4 +1,5 @@
 from init import db, ma
+from marshmallow_sqlalchemy import fields
 
 class Course(db.Model):
     __tablename__= 'courses'
@@ -13,12 +14,14 @@ class Course(db.Model):
     teacher = db.relationship('Teacher')
 
 class CourseSchema(ma.Schema):
+    teacher = fields.Nested('TeacherSchema')
+
     class Meta:
         fields = ('id', 'name', 'start_date', 'end_date', 'teacher_id', 'teacher')
 
         
 
 one_course = CourseSchema()
-many_courses = CourseSchema(many=True)
+many_courses = CourseSchema(many=True, exclude=['teacher'])
 
 course_without_id = CourseSchema(exclude=['id'])
