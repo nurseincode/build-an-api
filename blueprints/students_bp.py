@@ -45,10 +45,7 @@ def create_student():
         return one_student.dump(new_student), 201
     except IntegrityError as err:
         if err.orig.pgcode == errorcodes.UNIQUE_VIOLATION: 
-            return {"error": "Email address already in use"}, 409 # Conflict == client error response
-        # elif err.orig.pgcode == errorcodes.NOT_NULL_VIOLATION:
-        #     print (err.__dict__)
-        #     return {"error": str(err.orig)}, 400 #"Field is required"}, 400
+            return {"error": "Email address already in use"}, 409 
         else:
             return {"error": str(err.orig)}, 400
 
