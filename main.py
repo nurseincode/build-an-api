@@ -10,6 +10,7 @@ from blueprints.courses_bp import courses_bp
 def create_app():
     app = Flask(__name__)
 
+
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
 
     
